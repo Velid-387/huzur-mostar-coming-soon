@@ -9,6 +9,7 @@
   --social-icon-hover: #f7a8b8;
   --social-icon-fill: #5a5a5a;
   --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --font-cursive: 'Alex Brush', cursive;
 }
 
 .dark-mode {
@@ -27,8 +28,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-  font-family: Apple Chancery, cursive;
+  font-family: var(--font-cursive);
 }
 
 body {
@@ -114,9 +114,9 @@ body::before {
 }
 
 h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  font-weight: 300;
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
   letter-spacing: 2px;
   color: var(--text-color);
 }
@@ -124,6 +124,7 @@ h1 {
 .highlight {
   color: var(--highlight-color);
   font-weight: 600;
+  font-size: 1.1em;
 }
 
 .logo-container {
@@ -185,10 +186,19 @@ h1 {
 }
 
 p {
-  font-size: 1.25rem;
+  font-size: 1.8rem;
   margin-bottom: 2rem;
   line-height: 1.6;
   color: var(--text-color);
+}
+
+/* Reduce space between consecutive paragraphs */
+p + p {
+  margin-top: -1rem;
+}
+
+p .highlight {
+  font-size: 1.3em;
 }
 
 .social-icons {
@@ -199,8 +209,8 @@ p {
 }
 
 .social-icon {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   background-color: var(--social-icon-bg);
   border-radius: 50%;
   display: flex;
@@ -211,7 +221,7 @@ p {
 
 .social-icon i {
   color: var(--social-icon-fill);
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .social-icon:hover {
@@ -225,12 +235,16 @@ p {
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
   }
 
   .container {
     width: 90%;
     padding: 1.5rem;
+  }
+
+  p {
+    font-size: 1.6rem;
   }
 
   .logo {
@@ -261,10 +275,10 @@ p {
 
 #typing-text {
   display: inline-block;
-  font-size: 1.1rem;
+  font-size: 1.7rem;
   color: var(--text-color);
   background-color: var(--container-bg);
-  padding: 10px 20px;
+  padding: 10px 25px;
   border-radius: 30px;
   box-shadow: var(--box-shadow);
   backdrop-filter: blur(5px);
