@@ -31,18 +31,24 @@
   font-family: var(--font-cursive);
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background-image: url('../assets/images/huzur-home.png');
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: var(--text-color);
   position: relative;
-  overflow: hidden;
+  padding: 1rem;
 }
 
 /* Overlay to adjust the background image */
@@ -106,11 +112,13 @@ body::before {
   text-align: center;
   padding: 2rem;
   max-width: 800px;
+  width: 100%;
   backdrop-filter: blur(5px);
   background-color: var(--container-bg);
   border-radius: 20px;
   box-shadow: var(--box-shadow);
   z-index: 1;
+  margin: 3rem auto;
 }
 
 h1 {
@@ -119,6 +127,7 @@ h1 {
   font-weight: 400;
   letter-spacing: 2px;
   color: var(--text-color);
+  word-wrap: break-word;
 }
 
 .highlight {
@@ -190,6 +199,7 @@ p {
   margin-bottom: 2rem;
   line-height: 1.6;
   color: var(--text-color);
+  word-wrap: break-word;
 }
 
 /* Reduce space between consecutive paragraphs */
@@ -233,20 +243,64 @@ p .highlight {
   color: white;
 }
 
+/* Typing animation styling */
+.typing-animation-container {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 5;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+#typing-text {
+  display: inline-block;
+  font-size: 1.7rem;
+  color: var(--text-color);
+  background-color: var(--container-bg);
+  padding: 10px 25px;
+  border-radius: 30px;
+  box-shadow: var(--box-shadow);
+  backdrop-filter: blur(5px);
+  word-wrap: break-word;
+  max-width: 90%;
+}
+
+#typing-text::after {
+  content: '|';
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 3.5rem;
+  body {
+    padding: 0.5rem;
   }
-
+  
   .container {
-    width: 90%;
-    padding: 1.5rem;
+    width: 92%;
+    padding: 1.2rem;
+    margin: 2rem auto 4rem;
   }
-
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
   p {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
   }
-
+  
   .logo {
     width: 80px;
     height: 80px;
@@ -261,36 +315,95 @@ p .highlight {
     width: 40px;
     height: 40px;
   }
+  
+  .social-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .social-icon i {
+    font-size: 16px;
+  }
+  
+  #typing-text {
+    font-size: 1.3rem;
+    padding: 8px 15px;
+    max-width: 95%;
+  }
+  
+  .typing-animation-container {
+    bottom: 10px;
+  }
 }
 
-/* Typing animation styling */
-.typing-animation-container {
-  position: fixed;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 5;
+/* Extra small devices */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+  }
+  
+  .logo {
+    width: 70px;
+    height: 70px;
+  }
+  
+  #typing-text {
+    font-size: 1.1rem;
+    padding: 6px 12px;
+  }
+  
+  .container {
+    padding: 1rem;
+    margin-bottom: 3.5rem;
+  }
+  
+  .social-icons {
+    gap: 1rem;
+  }
+  
+  .social-icon {
+    width: 35px;
+    height: 35px;
+  }
 }
 
-#typing-text {
-  display: inline-block;
-  font-size: 1.7rem;
-  color: var(--text-color);
-  background-color: var(--container-bg);
-  padding: 10px 25px;
-  border-radius: 30px;
-  box-shadow: var(--box-shadow);
-  backdrop-filter: blur(5px);
-}
-
-#typing-text::after {
-  content: '|';
-  margin-left: 2px;
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+/* Landscape orientation on mobile */
+@media (max-height: 480px) and (orientation: landscape) {
+  .container {
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .logo-container {
+    margin: 0.5rem 0;
+  }
+  
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .social-icons {
+    margin-top: 0.8rem;
+  }
+  
+  .typing-animation-container {
+    position: relative;
+    margin-top: 1rem;
+    bottom: auto;
+  }
 } 
