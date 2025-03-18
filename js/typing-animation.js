@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const textElement = document.getElementById('typing-text');
-  const text = 'Stranica je u pripremi, vratite se kasnije.';
+  const text = 'Stranica je u pripremi, posjetite nas kasnije.';
   
   let isDeleting = false;
   let charIndex = 0;
